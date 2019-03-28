@@ -6,6 +6,7 @@
 #' @import leaflet
 #' @import shiny
 #' @import miniUI
+#' @import crosstalk
 #' @examples if (interactive()) {
 #'
 #'    collmaps::cm_map()
@@ -67,6 +68,8 @@ cm_map <- function() {
         return(NULL)
       readxl::read_excel(inFile$datapath)
     })
+
+
 
     fieldNames <- reactive({
       names(db())

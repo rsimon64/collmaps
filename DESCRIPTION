@@ -7,6 +7,6 @@ Maintainer: Reinhard Simon <rsimon64@gmail.com>
 Description: Make maps of plant accessions for checking data from collection missions.
 License: GPL-3
 Encoding: UTF-8
-Imports: shiny, miniUI, DT, htmltools, stringr, leaflet, readxl
+Imports: shiny, miniUI, DT, htmltools, stringr, leaflet, readxl, crosstalk
 LazyData: true
 RoxygenNote: 6.1.1

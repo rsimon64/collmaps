@@ -2,3 +2,8 @@ Name: Make Collection Map
 Description: Make collection map.
 Binding: cm_map
 Interactive: true
+
+Name: Add Images
+Description: Add Images of Collected Accessions.
+Binding: cm_add_images
+Interactive: true

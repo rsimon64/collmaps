@@ -1,0 +1,8 @@
+Binding: cm_create_project
+Title: Create a Collection Map Project
+Icon: biodiv.png
+
+Parameter: file_data
+Widget: FileInput
+Label: Data File
+
