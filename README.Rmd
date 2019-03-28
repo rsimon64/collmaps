@@ -33,7 +33,7 @@ The interface can be started from the addin menu in RStudio or from the terminal
 
 ```{r eval=FALSE}
 
-collmaps::cm_map()
+collmaps::makeCollMaps()
 
 ```
 
