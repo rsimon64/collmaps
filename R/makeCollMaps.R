@@ -30,6 +30,8 @@ makeCollMaps <- function() {
                uiOutput('idField'),
                uiOutput('latField'),
                uiOutput('lonField')
+               # ,
+               # uiOutput('imageField')
              ),
              fillCol(
                uiOutput('displayFields'),
@@ -83,6 +85,11 @@ makeCollMaps <- function() {
       selectInput("lon", "Lonfitude",  choices = fieldNames(), selected = fieldNames()[lonIdx])
     })
 
+    output$imageField <- renderUI({
+      imgIdx <- which(stringr::str_detect(tolower(fieldNames()), "image"))
+      selectInput("img", "Image",  choices = fieldNames(), selected = fieldNames()[imgIdx])
+    })
+
     output$displayFields <- renderUI({
       varSelectInput("display", "Column to use in display",  db(),
                      selected = "ID",
@@ -105,6 +112,9 @@ makeCollMaps <- function() {
           labels <- paste(labels, labels2)
         }
       }
+      # labels2 <- paste0("Images: <img src='D:/data/cabras/datos/images/",
+      #                   db()[[input$img]], ">'<br/>")
+      # labels <- paste(labels, labels2)
 
       leaflet() %>%
         addProviderTiles( input$maptype, # providers$Stamen.TonerLite,
