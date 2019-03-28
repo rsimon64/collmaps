@@ -1,7 +1,16 @@
 
 #' makeCollMaps
 #'
-#' @return
+#' Provides an interface to examine georeferenced records.
+#'
+#' @import leaflet
+#' @import shiny
+#' @import miniUI
+#' @examples if (interactive()) {
+#'
+#'    collmaps::makeCollMaps()
+#'
+#' }
 #' @export
 makeCollMaps <- function() {
 
@@ -25,7 +34,7 @@ makeCollMaps <- function() {
              fillCol(
                uiOutput('displayFields'),
                selectInput("maptype", "Maptype",
-                           providers[stringr::str_starts(providers, "Stamen|Esri")],
+                           leaflet::providers[stringr::str_starts(leaflet::providers, "Stamen|Esri")],
                            selected = "Stamen.TonerLite")
              )
            )
@@ -47,10 +56,6 @@ makeCollMaps <- function() {
   )
 
   server <- function(input, output, session) {
-
-    points <- eventReactive(input$recalc, {
-      cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
-    }, ignoreNULL = FALSE)
 
     db <- reactive({
       inFile <- input$database

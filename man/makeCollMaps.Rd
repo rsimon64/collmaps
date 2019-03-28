@@ -7,5 +7,12 @@
 makeCollMaps()
 }
 \description{
-makeCollMaps
+Provides an interface to examine georeferenced records.
+}
+\examples{
+if (interactive()) {
+
+   collmaps::makeCollMaps()
+
+}
 }
