@@ -1,0 +1,4 @@
+Name: Make Collection Maps
+Description: Make collection maps.
+Binding: makeCollMaps
+Interactive: true
