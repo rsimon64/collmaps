@@ -1,5 +1,5 @@
 
-#' makeCollMaps
+#' cm_map
 #'
 #' Provides an interface to examine georeferenced records.
 #'
@@ -8,11 +8,11 @@
 #' @import miniUI
 #' @examples if (interactive()) {
 #'
-#'    collmaps::makeCollMaps()
+#'    collmaps::cm_map()
 #'
 #' }
 #' @export
-makeCollMaps <- function() {
+cm_map <- function() {
 
   ui <- miniPage(
     gadgetTitleBar("Collection Maps"),
@@ -30,8 +30,8 @@ makeCollMaps <- function() {
                uiOutput('idField'),
                uiOutput('latField'),
                uiOutput('lonField')
-               # ,
-               # uiOutput('imageField')
+               ,
+               uiOutput('imageField')
              ),
              fillCol(
                uiOutput('displayFields'),
@@ -58,6 +58,7 @@ makeCollMaps <- function() {
   )
 
   server <- function(input, output, session) {
+    addResourcePath("images", file.path(getwd(), "images", "popup"))
 
     db <- reactive({
       inFile <- input$database
@@ -112,9 +113,9 @@ makeCollMaps <- function() {
           labels <- paste(labels, labels2)
         }
       }
-      # labels2 <- paste0("Images: <img src='D:/data/cabras/datos/images/",
-      #                   db()[[input$img]], ">'<br/>")
-      # labels <- paste(labels, labels2)
+      labels2 <- paste0("<img src='",
+                        file.path("images", db()[[input$img]]), "'<br/>")
+      labels <- paste(labels, labels2)
 
       leaflet() %>%
         addProviderTiles( input$maptype, # providers$Stamen.TonerLite,
