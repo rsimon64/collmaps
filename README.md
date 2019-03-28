@@ -24,5 +24,5 @@ terminal:
 
 ``` r
 
-collmaps::makeCollMaps()
+collmaps::cm_map()
 ```
