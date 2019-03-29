@@ -1,5 +1,6 @@
+^docs$
+^inst/reps$
 ^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\datos\*.*$
-^\images$
