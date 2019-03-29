@@ -3,6 +3,8 @@
 
 # collmaps
 
+![collmap](inst/rstudio/templates/project/biodiv.png)
+
 The goal of collmaps is to provide simple tools to check plant
 collection records. It provides a user interface to upload an excel
 table that must have at least three columns with these names: ID, lat,
